@@ -171,22 +171,29 @@ import UIKit
         
         let gimme = LayoutHelper(rect: backgroundIV.frame)
         
-        iconIV.frame = CGRect(x: insets,
+        iconIV.frame = CGRect(x: gimme.RevX(0, width: gimme.Y(25)) - insets,
                               y: insets,
                               width: gimme.Y(25),
                               height: gimme.Y(25))
         
-        titleLbl.frame.origin = CGPoint(x: insets, y: gimme.Y(5, from: iconIV))
+        titleLbl.frame.origin = CGPoint(x: insets, y: gimme.Y(-5, from: iconIV))
         titleLbl.frame.size.width = (frame.width * 0.65) + ((backgroundIV.bounds.width - frame.width)/3)
         titleLbl.frame.size.height = gimme.Y(35)
         
         itemSubtitleLbl.sizeToFit()
         itemSubtitleLbl.frame.origin = CGPoint(x: insets, y: gimme.RevY(0, height: itemSubtitleLbl.bounds.size.height) - insets)
+        itemSubtitleLbl.frame.size.width = (frame.width - btnWidth) * 0.8
+        
+//        itemTitleLbl.frame = CGRect(x: insets,
+//                                    y: gimme.RevY(0, height: gimme.Y(9), from: itemSubtitleLbl),
+//                                    width: gimme.X(80) - btnWidth,
+//                                    height: gimme.Y(9))
         
         itemTitleLbl.frame = CGRect(x: insets,
-                                    y: gimme.RevY(0, height: gimme.Y(9), from: itemSubtitleLbl),
-                                    width: gimme.X(80) - btnWidth,
-                                    height: gimme.Y(9))
+                                    y: insets,
+                                    width: gimme.X(80),
+                                    height: 32)
+
         
         bgIconIV.transform = CGAffineTransform.identity
         
